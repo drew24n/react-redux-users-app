@@ -43,7 +43,7 @@ function* addUserWorker(newUser) {
 function* updateUserWorker(userId, updateUserData) {
     try {
         yield put(isFetching(true))
-        const data = yield call(usersAPI.updateUser, {userId, updateUserData})
+        const data = yield call(usersAPI.updateUser, userId, updateUserData)
         if (data) {
             yield put(setUpdateUserData(data))
         }

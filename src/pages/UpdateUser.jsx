@@ -13,7 +13,7 @@ export function UpdateUser() {
     const userId = +new URLSearchParams(history.location.search).get('id')
     const currentUser = useMemo(() => {
         return state.users.find(user => user.id === userId)
-    }, [userId])
+    }, [userId, state.users])
 
     const [userInfo, setUserInfo] = useState(currentUser ? currentUser : {})
 

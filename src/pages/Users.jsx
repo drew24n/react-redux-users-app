@@ -13,10 +13,17 @@ export function Users() {
         dispatch(requestDeleteUser(id))
     }
 
+    //paginate array
+    const size = state.pageSize //subarray size
+    const subarray = [[]]
+    for (let i = 0; i < Math.ceil(state.users.length / size); i++) {
+        subarray[i] = state.users.slice((i * size), (i * size) + size)
+    }
+
     return (
         <>
             <div className={styles.container}>
-                {state.users.map(user => (
+                {subarray[state.currentPage - 1].map(user => (
                     <div className={styles.userItem} key={user.id}>
                         <p>Name: {user.name}</p>
                         <p>Surname: {user.surname}</p>
