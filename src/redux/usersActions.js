@@ -6,6 +6,9 @@ export const REQUEST_UPDATE_USER = "REQUEST_UPDATE_USER"
 export const SET_UPDATE_USER_DATA = "SET_UPDATE_USER_DATA"
 export const REQUEST_DELETE_USER = "REQUEST_DELETE_USER"
 export const SET_DELETE_USER_RESPONSE = "SET_DELETE_USER_RESPONSE"
+export const SET_IS_FETCHING = "SET_IS_FETCHING"
+
+export const isFetching = (isFetching) => ({type: SET_IS_FETCHING, isFetching})
 
 export const requestUsers = () => ({type: REQUEST_USERS})
 export const setUsers = (usersData) => ({type: SET_USERS, usersData})
