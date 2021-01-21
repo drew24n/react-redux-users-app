@@ -1,14 +1,19 @@
 import styles from './styles/App.module.scss';
 import {useEffect} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {requestUsers} from "./redux/usersActions";
 import {NavBar} from "./components/NavBar";
 import {Route, Switch} from "react-router-dom";
 import {Users} from "./pages/Users";
 import {UpdateUser} from "./pages/UpdateUser";
 import {CreateUser} from "./pages/CreateUser";
+import Preloader from "./components/Preloader";
+import {ErrorsHandler} from "./utils/ErrorsHandler";
 
 export function App() {
+    ErrorsHandler()
+
+    const state = useSelector(state => state)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -23,6 +28,7 @@ export function App() {
                 <Route exact path={'/update'} component={UpdateUser}/>
                 <Route path={'/create'} component={CreateUser}/>
             </Switch>
+            {state.isFetching ? <Preloader/> : null}
         </main>
     )
 }

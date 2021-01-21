@@ -23,7 +23,7 @@ export const usersReducer = (state = initialState, action) => {
         case SET_UPDATE_USER_DATA:
             return {
                 ...state, users: state.users.map(user => {
-                    if (user.id === action.userId) {
+                    if (user.id === action.updateUserDataRes.id) {
                         user.name = action.updateUserDataRes.name
                         user.surname = action.updateUserDataRes.surname
                         user.desc = action.updateUserDataRes.desc

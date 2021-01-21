@@ -16,8 +16,8 @@ export const setUsers = (usersData) => ({type: SET_USERS, usersData})
 export const requestAddUser = (newUser) => ({type: REQUEST_ADD_USER, newUser})
 export const setNewUser = (newUserRes) => ({type: SET_NEW_USER, newUserRes})
 
-export const requestEditUser = (userId, updateUserData) => ({type: REQUEST_UPDATE_USER, userId, updateUserData})
-export const setEditUserData = (updateUserDataRes) => ({type: SET_UPDATE_USER_DATA, updateUserDataRes})
+export const requestUpdateUser = (userId, updateUserData) => ({type: REQUEST_UPDATE_USER, userId, updateUserData})
+export const setUpdateUserData = (updateUserDataRes) => ({type: SET_UPDATE_USER_DATA, updateUserDataRes})
 
 export const requestDeleteUser = (userId) => ({type: REQUEST_DELETE_USER, userId})
 export const setDeleteUserResponse = (delUsersRes) => ({type: SET_DELETE_USER_RESPONSE, delUsersRes})

@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 10px;
+
+    input, button {
+      width: fit-content;
+      outline: none;
+      margin: auto;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+}

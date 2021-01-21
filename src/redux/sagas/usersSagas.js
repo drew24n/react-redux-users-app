@@ -1,12 +1,7 @@
 import {takeEvery, put, call} from 'redux-saga/effects';
 import {
-    isFetching,
-    REQUEST_ADD_USER,
-    REQUEST_DELETE_USER,
-    REQUEST_UPDATE_USER,
-    REQUEST_USERS, setDeleteUserResponse, setEditUserData,
-    setNewUser,
-    setUsers
+    REQUEST_ADD_USER, REQUEST_DELETE_USER, REQUEST_UPDATE_USER, REQUEST_USERS,
+    setDeleteUserResponse, setUpdateUserData, setNewUser, setUsers, isFetching
 } from "../usersActions";
 import {usersAPI} from "../../api/usersAPI";
 
@@ -21,7 +16,9 @@ function* getUsersWorker() {
     try {
         yield put(isFetching(true))
         const data = yield call(usersAPI.getUsers)
-        yield put(setUsers(data))
+        if (data) {
+            yield put(setUsers(data))
+        }
     } catch (e) {
         alert(e)
     } finally {
@@ -33,7 +30,9 @@ function* addUserWorker({newUser}) {
     try {
         yield put(isFetching(true))
         const data = yield call(usersAPI.addUser, newUser)
-        yield put(setNewUser(data))
+        if (data) {
+            yield put(setNewUser(data))
+        }
     } catch (e) {
         alert(e)
     } finally {
@@ -45,7 +44,9 @@ function* updateUserWorker({userId, updateUserData}) {
     try {
         yield put(isFetching(true))
         const data = yield call(usersAPI.editUser, {userId, updateUserData})
-        yield put(setEditUserData(data))
+        if (data) {
+            yield put(setUpdateUserData(data))
+        }
     } catch (e) {
         alert(e)
     } finally {
@@ -57,7 +58,9 @@ function* deleteUserWorker(action) {
     try {
         yield put(isFetching(true))
         const data = yield call(usersAPI.deleteUser, action.userId)
-        yield put(setDeleteUserResponse(data))
+        if (data) {
+            yield put(setDeleteUserResponse(data))
+        }
     } catch (e) {
         alert(e)
     } finally {

@@ -2,8 +2,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {requestDeleteUser} from "../redux/usersActions";
 import {useHistory} from "react-router-dom";
 import styles from '../styles/Users.module.scss';
-import Preloader from "../components/Preloader";
-
 
 export function Users() {
     const dispatch = useDispatch()
@@ -13,8 +11,6 @@ export function Users() {
     function deleteUserHandler(id) {
         dispatch(requestDeleteUser(id))
     }
-
-    if (state.isFetching) return <Preloader/>
 
     return (
         <div className={styles.container}>

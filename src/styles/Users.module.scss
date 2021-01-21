@@ -12,6 +12,14 @@
     flex-direction: column;
     border: 1px solid #000;
 
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0 10px;
+      max-width: 200px;
+    }
+
     nav {
       display: flex;
       gap: 10px;
