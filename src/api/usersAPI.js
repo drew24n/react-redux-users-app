@@ -10,13 +10,13 @@ export const usersAPI = {
             .then(res => res.data)
             .catch(e => alert(e))
     },
-    addUser(user) {
-        return instance.post('/users', user)
+    addUser({newUser}) {
+        return instance.post('/users', newUser)
             .then(res => res.data)
             .catch(e => alert(e))
     },
-    editUser(id, user) {
-        return instance.put(`/user/${id}`, user)
+    editUser({userId, updateUserData}) {
+        return instance.put(`/user/${userId}`, updateUserData)
             .then(res => res.data)
             .catch(e => alert(e))
     },
