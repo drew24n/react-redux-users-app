@@ -7,6 +7,7 @@ export const SET_UPDATE_USER_DATA = "SET_UPDATE_USER_DATA"
 export const REQUEST_DELETE_USER = "REQUEST_DELETE_USER"
 export const SET_DELETE_USER_RESPONSE = "SET_DELETE_USER_RESPONSE"
 export const SET_IS_FETCHING = "SET_IS_FETCHING"
+export const SET_PAGE_NUMBER = "SET_PAGE_NUMBER"
 
 export const isFetching = (isFetching) => ({type: SET_IS_FETCHING, isFetching})
 
@@ -21,3 +22,5 @@ export const setUpdateUserData = (updateUserDataRes) => ({type: SET_UPDATE_USER_
 
 export const requestDeleteUser = (userId) => ({type: REQUEST_DELETE_USER, userId})
 export const setDeleteUserResponse = (delUsersRes) => ({type: SET_DELETE_USER_RESPONSE, delUsersRes})
+
+export const setPageNumber = (pageNumber) => ({type: SET_PAGE_NUMBER, pageNumber})

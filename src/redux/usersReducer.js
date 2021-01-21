@@ -1,12 +1,22 @@
-import {SET_DELETE_USER_RESPONSE, SET_IS_FETCHING, SET_NEW_USER, SET_UPDATE_USER_DATA, SET_USERS} from "./usersActions";
+import {
+    SET_DELETE_USER_RESPONSE, SET_IS_FETCHING, SET_NEW_USER,
+    SET_PAGE_NUMBER, SET_UPDATE_USER_DATA, SET_USERS
+} from "./usersActions";
 
 const initialState = {
     users: [],
-    isFetching: false
+    isFetching: false,
+    pageSize: 5,
+    currentPage: 1
 }
 
 export const usersReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_PAGE_NUMBER: {
+            return {
+                ...state, currentPage: action.pageNumber
+            }
+        }
         case SET_IS_FETCHING: {
             return {
                 ...state, isFetching: action.isFetching

@@ -15,8 +15,8 @@ export const usersAPI = {
             .then(res => res.data)
             .catch(e => alert(e))
     },
-    editUser({userId, updateUserData}) {
-        return instance.put(`/user/${userId}`, updateUserData)
+    updateUser({userId, updateUserData}) {
+        return instance.put(`/user/${userId}`, {updateUserData})
             .then(res => res.data)
             .catch(e => alert(e))
     },
