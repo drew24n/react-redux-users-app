@@ -20,7 +20,7 @@ export function App() {
             <NavBar/>
             <Switch>
                 <Route exact path={'/'} component={Users}/>
-                <Route path={'/update'} component={UpdateUser}/>
+                <Route exact path={'/update'} component={UpdateUser}/>
                 <Route path={'/create'} component={CreateUser}/>
             </Switch>
         </main>
