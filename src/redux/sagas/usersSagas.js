@@ -9,7 +9,7 @@ import {
 } from "../usersActions";
 import {usersAPI} from "../../api/usersAPI";
 
-export function* userWatcher() {
+export function* usersWatcher() {
     yield takeEvery(REQUEST_USERS, getUsersWorker)
     yield takeEvery(REQUEST_ADD_USER, addUserWorker)
     yield takeEvery(REQUEST_UPDATE_USER, updateUserWorker)
