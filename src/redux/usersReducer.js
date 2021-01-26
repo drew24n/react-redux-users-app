@@ -28,7 +28,12 @@ export const usersReducer = (state = initialState, action) => {
             }
         case SET_NEW_USER:
             return {
-                ...state, users: [...state.users, action.newUserRes]
+                ...state, users: [...state.users, {
+                    id: action.newUserRes.id,
+                    name: action.newUserRes.name,
+                    surname: action.newUserRes.surname,
+                    desc: action.newUserRes.desc
+                }]
             }
         case SET_UPDATE_USER_DATA:
             return {

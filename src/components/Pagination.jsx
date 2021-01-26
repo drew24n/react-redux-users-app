@@ -6,7 +6,7 @@ export function Pagination() {
     const state = useSelector(state => state)
     const dispatch = useDispatch()
 
-    const pagesTotal = Math.ceil((state.users.length + 1) / state.pageSize)
+    const pagesTotal = Math.ceil((state.users.length) / state.pageSize)
     const pagesArr = []
     for (let i = 1; i <= pagesTotal; i++) {
         pagesArr.push(i)
