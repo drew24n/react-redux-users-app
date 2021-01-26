@@ -4,14 +4,15 @@ import './styles/index.scss';
 import {App} from './App';
 import {store} from "./redux/store";
 import {Provider} from "react-redux";
-import {BrowserRouter} from "react-router-dom";
+import {Router} from "react-router-dom";
+import history from "./utils/history";
 
 ReactDOM.render(
     <StrictMode>
         <Provider store={store}>
-            <BrowserRouter>
+            <Router history={history}>
                 <App/>
-            </BrowserRouter>
+            </Router>
         </Provider>
     </StrictMode>,
     document.getElementById('root')

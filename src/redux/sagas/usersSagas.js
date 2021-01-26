@@ -4,6 +4,7 @@ import {
     setDeleteUserResponse, setUpdateUserData, setNewUser, setUsers, isFetching
 } from "../usersActions";
 import {usersAPI} from "../../api/usersAPI";
+import history from '../../utils/history';
 
 export function* usersWatcher() {
     yield takeEvery(REQUEST_USERS, getUsersWorker)
@@ -18,6 +19,7 @@ function* getUsersWorker() {
         const data = yield call(usersAPI.getUsers)
         if (data) {
             yield put(setUsers(data))
+
         }
     } catch (e) {
         alert(e)
@@ -32,6 +34,7 @@ function* addUserWorker(newUser) {
         const data = yield call(usersAPI.addUser, newUser)
         if (data) {
             yield put(setNewUser(data))
+            history.push('/')
         }
     } catch (e) {
         alert(e)
@@ -46,6 +49,7 @@ function* updateUserWorker(userId, updateUserData) {
         const data = yield call(usersAPI.updateUser, userId, updateUserData)
         if (data) {
             yield put(setUpdateUserData(data))
+            history.push('/')
         }
     } catch (e) {
         alert(e)
