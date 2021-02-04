@@ -16,22 +16,20 @@ export function Users() {
 
     //paginate array
     const size = state.pageSize //subarray size
-    const subarray = []
+    const subArrays = []
     for (let i = 0; i < Math.ceil(state.users.length / size); i++) {
-        subarray[i] = state.users.slice((i * size), (i * size) + size)
+        subArrays[i] = state.users.slice((i * size), (i * size) + size)
     }
 
     useEffect(() => {
-        if (!subarray[state.currentPage - 1]) {
-            dispatch(setPageNumber(1))
-        }
-    }, [state.users.length])
+        dispatch(setPageNumber(1))
+    }, [dispatch, state.users.length])
 
     return (
         <>
             <div className={styles.container}>
-                {subarray[state.currentPage - 1] && subarray[state.currentPage - 1].length
-                    ? subarray[state.currentPage - 1].map(user => (
+                {subArrays[state.currentPage - 1]
+                    ? subArrays[state.currentPage - 1].map(user => (
                         <div className={styles.userItem} key={user.id}>
                             <p>Name: {user.name}</p>
                             <p>Surname: {user.surname}</p>
